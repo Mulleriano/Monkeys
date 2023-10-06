@@ -1,6 +1,7 @@
 ﻿global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using monkeys.Model;
+global using monkeys.View;
 global using monkeys.ViewModel;
 global using System.Collections.ObjectModel;
 global using System.ComponentModel;
