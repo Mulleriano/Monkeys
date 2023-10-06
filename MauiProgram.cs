@@ -21,6 +21,8 @@ namespace monkeys
             builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+
             builder.Services.AddSingleton<MonkeyService>();
 
             builder.Services.AddSingleton<MonkeysViewModel>();
