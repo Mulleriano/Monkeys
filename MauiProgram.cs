@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using monkeys.Services;
 using monkeys.View;
 
 namespace monkeys
@@ -19,6 +20,10 @@ namespace monkeys
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<MonkeyService>();
+
+            builder.Services.AddSingleton<MonkeysViewModel>();
 
             builder.Services.AddSingleton<MainPage>();
 
