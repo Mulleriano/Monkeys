@@ -7,10 +7,13 @@ namespace monkeys.ViewModel
         MonkeyService monkeyService;
         public ObservableCollection<Monkey> Monkeys { get; } = new();
 
-        public MonkeysViewModel(MonkeyService monkeyService)
+        IConnectivity connectivity;
+
+        public MonkeysViewModel(MonkeyService monkeyService, IConnectivity connectivity)
         {
             Title = "Monkeys";
             this.monkeyService = monkeyService;
+            this.connectivity = connectivity;
         }
 
         [RelayCommand]
@@ -33,6 +36,12 @@ namespace monkeys.ViewModel
 
             try
             {
+                if (connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    await Shell.Current.DisplayAlert("No internet!", "Check your internet and try again", "OK");
+                    return;
+                }
+
                 IsBusy = true;
                 var monkeys = await monkeyService.GetMonkeys();
 
