@@ -1,9 +1,15 @@
 namespace monkeys.View;
 
-public partial class DetailPage : ContentPage
+public partial class DetailsPage : ContentPage
 {
-	public DetailPage()
-	{
-		InitializeComponent();
-	}
+    public DetailsPage(MonkeyDetailsViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+    }
 }
