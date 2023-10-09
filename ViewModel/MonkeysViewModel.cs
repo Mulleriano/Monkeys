@@ -18,6 +18,9 @@ namespace monkeys.ViewModel
             this.geolocation = geolocation;
         }
 
+        [ObservableProperty]
+        bool isRefreshing;
+
         [RelayCommand]
         async Task GetClosestMonkey()
         {
@@ -99,6 +102,7 @@ namespace monkeys.ViewModel
             finally
             {
                 IsBusy = false;
+                IsRefreshing = false;
             }
         }
     }
