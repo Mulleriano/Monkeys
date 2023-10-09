@@ -17,6 +17,26 @@
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
                         SelectionMode="None">
+
+            <CollectionView.EmptyView>
+                <Grid IsVisible="{Binding IsNotBusy}"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="CenterAndExpand">
+
+                    <StackLayout Padding="100, 50">
+                        <Image Source="nodata.png"/>
+                    </StackLayout>
+
+                    <Label Style="{StaticResource MediumLabel}"
+                           Padding="20"
+                           FontAttributes="Italic"
+                           Text="No Monkeys Yet, search it!"
+                           Margin="0, 0, 0, 0"
+                           HorizontalOptions="Center"/>
+
+                </Grid>
+            </CollectionView.EmptyView>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
