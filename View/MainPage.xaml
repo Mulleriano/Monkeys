@@ -17,6 +17,15 @@
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
                         SelectionMode="None">
+
+            <CollectionView.EmptyView>
+                <StackLayout IsVisible="{Binding IsNotBusy}">
+                    <Image HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Source="nodata.png"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
