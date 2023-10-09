@@ -19,11 +19,22 @@
                         SelectionMode="None">
 
             <CollectionView.EmptyView>
-                <StackLayout IsVisible="{Binding IsNotBusy}">
-                    <Image HorizontalOptions="CenterAndExpand"
-                           VerticalOptions="CenterAndExpand"
-                           Source="nodata.png"/>
-                </StackLayout>
+                <Grid IsVisible="{Binding IsNotBusy}"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="CenterAndExpand">
+
+                    <StackLayout Padding="100, 50">
+                        <Image Source="nodata.png"/>
+                    </StackLayout>
+
+                    <Label Style="{StaticResource MediumLabel}"
+                           Padding="20"
+                           FontAttributes="Italic"
+                           Text="No Monkeys Yet, search it!"
+                           Margin="0, 0, 0, 0"
+                           HorizontalOptions="Center"/>
+
+                </Grid>
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
